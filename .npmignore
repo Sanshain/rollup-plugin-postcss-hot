@@ -1,0 +1,6 @@
+.idea/
+.github/
+
+/coverage/
+node_modules/
+package-lock.json
