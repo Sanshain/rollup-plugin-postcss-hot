@@ -4,7 +4,7 @@ function styleInject(css = '', ref, id) {
   if (ref === undefined) ref = {}
   const { insertAt } = ref
 
-  const previous = document.querySelectorAll('[data-module="' + id + '"]')
+  const previous = [].slice.call(document.querySelectorAll('[data-module="' + id + '"]'))
 
   // NOTE we want to inject the style el at the same position in the DOM to
   // respect equal power selectors priority (last one wins)
