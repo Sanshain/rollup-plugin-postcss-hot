@@ -1,5 +1,11 @@
-/**/dist/
+# /**/dist/
+
+!types/index.d.ts
+!dist/index.js
+
 /.idea/
-/coverage/
-/node_modules/
-/package-lock.json
+
+coverage/
+
+node_modules/
+package-lock.json/
