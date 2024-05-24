@@ -214,7 +214,7 @@ export default {
           '',
           `import styleInject from '${styleInjectPath}';`,
           `styleInject(${args.join(', ')});`,
-          'if (import.meta.hot) import.meta.hot.accept()'
+          'if (window.import && window.import.meta.hot) window.import.meta.hot.accept()'
         ].join('\n')
       }
     }
