@@ -29,10 +29,10 @@ function styleInject(css = '', ref, id) {
     if (head.firstChild) {
       head.insertBefore(style, head.firstChild)
     } else {
-      head.append(style)
+      head.appendChild(style)
     }
   } else {
-    head.append(style)
+    head.appendChild(style)
   }
 
   remove()
@@ -40,7 +40,7 @@ function styleInject(css = '', ref, id) {
   if (style.styleSheet) {
     style.styleSheet.cssText = css
   } else {
-    style.append(document.createTextNode(css))
+    style.appendChild(document.createTextNode(css))
   }
 }
 
