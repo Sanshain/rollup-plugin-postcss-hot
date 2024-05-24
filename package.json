@@ -32,6 +32,9 @@
   },
   "types": "./types/index.d.ts",
   "homepage": "https://github.com/rixo/rollup-plugin-postcss-hot#readme",
+  "peerDependencies": {
+    "rollup": ">2.2.0"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.8",
     "@rollup/plugin-json": "^6.1.0",
