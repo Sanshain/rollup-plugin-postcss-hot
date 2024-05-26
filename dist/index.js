@@ -3014,18 +3014,14 @@ function ensureArray(thing) {
 }
 
 function getMatcherString(id, resolutionBase) {
-    if (resolutionBase === false) {
-        return id;
-    }
-    return path$9.resolve(...(typeof resolutionBase === 'string' ? [resolutionBase, id] : [id]));
+    return path$9.resolve(...([id]));
 }
 const createFilter = function createFilter(include, exclude, options) {
-    const resolutionBase = options && options.resolve;
     const getMatcher = (id) => {
         return id instanceof RegExp
             ? id
             : {
-                test: micromatch_1.matcher(getMatcherString(id, resolutionBase)
+                test: micromatch_1.matcher(getMatcherString(id)
                     .split(path$9.sep)
                     .join('/'), { dot: true })
             };
@@ -3771,7 +3767,7 @@ var util$7 = {};
 
 	  return normalize(sourceURL);
 	}
-	exports.computeSourceURL = computeSourceURL;
+	exports.computeSourceURL = computeSourceURL; 
 } (util$7));
 
 var arraySet = {};
@@ -4525,7 +4521,7 @@ var binarySearch$1 = {};
 	  }
 
 	  return index;
-	};
+	}; 
 } (binarySearch$1));
 
 var quickSort$1 = {};
@@ -5702,7 +5698,7 @@ IndexedSourceMapConsumer.prototype.sourceContentFor =
  * and an object is returned with the following properties:
  *
  *   - line: The line number in the generated source, or null.  The
- *     line number is 1-based.
+ *     line number is 1-based. 
  *   - column: The column number in the generated source, or null.
  *     The column number is 0-based.
  */
@@ -14507,9 +14503,9 @@ var loaders$2 = {
 
 const fs$4 = require$$0$1;
 
-
-
-
+                
+                          
+  
 
 function readFile$1(filepath        , options          )                         {
   options = options || {};
@@ -14528,7 +14524,7 @@ function readFile$1(filepath        , options          )                        
 
 readFile$1.sync = function readFileSync(
   filepath        ,
-  options
+  options          
 )                {
   options = options || {};
   const throwNotFound = options.throwNotFound || false;
@@ -14658,14 +14654,14 @@ const MODE_SYNC = 'sync';
 // null represents that the loader did not find anything relevant.
 // undefined represents that the loader found something relevant
 // but it was empty.
-
+                                              
 
 class Explorer {
-
-
-
-
-
+                                                      
+                                                 
+                                                        
+                                                   
+                          
 
   constructor(options                 ) {
     this.loadCache = options.cache ? new Map() : null;
@@ -14804,7 +14800,7 @@ class Explorer {
 
   nextDirectoryToSearch(
     currentDir        ,
-    currentResult
+    currentResult                   
   )          {
     if (this.shouldSearchStopWithResult(currentResult)) {
       return null;
@@ -14856,7 +14852,7 @@ class Explorer {
   loadFileContent(
     mode                  ,
     filepath        ,
-    content
+    content               
   )                                                 {
     if (content === null) {
       return null;
@@ -14873,7 +14869,7 @@ class Explorer {
 
   loadedContentToCosmiconfigResult(
     filepath        ,
-    loadedContent
+    loadedContent                   
   )                    {
     if (loadedContent === null) {
       return null;
@@ -14886,7 +14882,7 @@ class Explorer {
 
   createCosmiconfigResult(
     filepath        ,
-    content
+    content               
   )                             {
     return Promise.resolve()
       .then(() => {
@@ -14899,7 +14895,7 @@ class Explorer {
 
   createCosmiconfigResultSync(
     filepath        ,
-    content
+    content               
   )                    {
     const loaderResult = this.loadFileContent('sync', filepath, content);
     return this.loadedContentToCosmiconfigResult(filepath, loaderResult);
@@ -14970,15 +14966,15 @@ var dist$1 = cosmiconfig;
 
 function cosmiconfig(
   moduleName        ,
-  options
-
-
-
-
-
-
-
-
+  options   
+                         
+                     
+                                 
+                                      
+                     
+                    
+                                                       
+   
 ) {
   options = options || {};
   const defaults = {
@@ -16958,7 +16954,7 @@ var eventemitter3 = {exports: {}};
 	//
 	{
 	  module.exports = EventEmitter;
-	}
+	} 
 } (eventemitter3));
 
 var eventemitter3Exports = eventemitter3.exports;
@@ -17896,7 +17892,7 @@ var index = (options = {}) => {
         const { modules } = bundle[normalizePath(path$9.relative(dir, file))];
 
         if (modules) {
-          const moduleIds = [...this.moduleIds];
+          const moduleIds = [...this.moduleIds || []];
           entries.sort(
             (a, b) => moduleIds.indexOf(a.id) - moduleIds.indexOf(b.id)
           );
